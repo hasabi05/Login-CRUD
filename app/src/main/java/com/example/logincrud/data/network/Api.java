@@ -14,7 +14,7 @@ public class Api {
     private static Retrofit retrofit = null;
     public static Retrofit getUrl(){
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.readTimeout(10, TimeUnit.SECONDS);
+        builder.readTimeout(30, TimeUnit.SECONDS);
         builder.connectTimeout(30, TimeUnit.SECONDS);
 
         if(BuildConfig.DEBUG){

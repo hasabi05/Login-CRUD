@@ -49,7 +49,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
+            android:inputType="textPassword"
             android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:id="@+id/btnAkunBaru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buat akun baru"
+            />
 
     </LinearLayout>
 
