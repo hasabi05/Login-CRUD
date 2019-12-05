@@ -16,17 +16,17 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug{
-            resValue("string","runMode","development")
-            buildConfigField 'String','BASE_URL','"http://192.168.1.14:8000"'
+        debug {
+            resValue("string", "runMode", "development")
+            buildConfigField 'String', 'BASE_URL', '"http://192.168.1.14:8000"'
         }
     }
-    compileOptions{
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-ext{
+ext {
     appcompatVersion = '1.1.0'
     butterknifeVersion = '10.0.0'
 }
