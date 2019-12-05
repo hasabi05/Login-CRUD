@@ -1,6 +1,7 @@
 package com.example.logincrud.data.network;
 
 
+import com.example.logincrud.data.model.login.ResponseLogin;
 import com.example.logincrud.data.model.register.ResponseRegister;
 
 import io.reactivex.Single;
@@ -14,6 +15,13 @@ public interface ApiEndpoint {
     Single<ResponseRegister> postRegister(
             @Field("email") String email,
             @Field("name") String name,
+            @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("login")
+    Single<ResponseLogin> postLogin(
+            @Field("email") String email,
             @Field("password") String password
     );
 }
