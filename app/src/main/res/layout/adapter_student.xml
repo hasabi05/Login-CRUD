@@ -16,15 +16,21 @@
             android:background="#ACACAC"/>
         <LinearLayout
             android:weightSum="2"
+            android:id="@+id/llAdapter"
             android:layout_width="match_parent"
+            android:layout_toStartOf="@+id/btnDelete"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginRight="16dp"
             android:orientation="vertical"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/ivStudent">
 
             <TextView
                 android:id="@+id/tvNama"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -37,7 +43,22 @@
                 android:layout_weight="1"
                 android:text="Nim" />
 
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:layout_centerVertical="true"
+
+            android:layout_alignParentEnd="true"
+
+
+            android:text="Delete" />
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

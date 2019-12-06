@@ -33,9 +33,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterInter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        getSupportActionBar().setTitle("Buat Akun baru");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         unbinder = ButterKnife.bind(this);
-        presenter = new RegisterPresenter(this);
+
+
     }
+
 
     @OnClick(R.id.btnRegister)
     void onSubmit() {
@@ -87,6 +92,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterInter
     @Override
     public String getEmail() {
         return etEmail.getText().toString();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,10 +26,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     Context context;
     List<DataStudent> data;
+    MainInterface.View view;
 
-    public MainAdapter(Context context, List<DataStudent> data) {
+    public MainAdapter(Context context, List<DataStudent> data, MainInterface.View view) {
         this.context = context;
         this.data = data;
+        this.view = view;
     }
 
     @NonNull
@@ -38,10 +41,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvNama.setText(data.get(position).getName());
         holder.tvNim.setText(data.get(position).getNim());
+
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view.onDelete(data.get(position).getNim());
+            }
+
+        });
 
 
         ImageHelper.getImage(holder.ivStudent,data.get(position).getImage().replace("https","http"));
@@ -61,6 +73,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         TextView tvNama;
         @BindView(R.id.tvNim)
         TextView tvNim;
+        @BindView(R.id.btnDelete)
+        Button btnDelete;
 
 
         public ViewHolder(@NonNull View itemView) {

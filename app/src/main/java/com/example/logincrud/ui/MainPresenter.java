@@ -1,6 +1,7 @@
 package com.example.logincrud.ui;
 
 import com.example.logincrud.data.model.student.ResponseStudent;
+import com.example.logincrud.data.model.student.delete.ResponseDelete;
 import com.example.logincrud.data.network.Api;
 import com.example.logincrud.data.network.ApiEndpoint;
 
@@ -45,5 +46,33 @@ public class MainPresenter implements MainInterface.Presenter{
                     }
                 });
 
+    }
+
+    @Override
+    public void deleteStudent(String nim) {
+        view.onLoadingDelete(true);
+        endpoint.deleteStudent(nim)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<ResponseDelete>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(ResponseDelete responseDelete) {
+                        view.onLoadingDelete(false);
+                        view.onResultDelete(responseDelete);
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        view.onErrorDelete();
+                        view.onLoadingDelete(false);
+                        view.showMessage(e.getMessage());
+                    }
+                });
     }
 }
