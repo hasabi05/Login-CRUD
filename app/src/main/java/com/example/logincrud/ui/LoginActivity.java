@@ -30,8 +30,13 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        if(!Session.getInstance(getApplicationContext()).getString(Session.email).equals("")){
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            finish();
+        }
 
         unbinder = ButterKnife.bind(this);
+
         presenter = new LoginPresenter(this);
 
     }
@@ -62,16 +67,21 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface.V
 
     @Override
     public void onResultLogin(ResponseLogin responseLogin) {
-        DataStudent data = responseLogin.getData();
-        Toast.makeText(this, responseLogin.getMessage(), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        //set session
-        Session.getInstance(getApplicationContext()).putString((Session.email), getEmail());
-        Session.getInstance(getApplicationContext()).putString((Session.name), data.getName());
+        if(responseLogin.getStatus()){
+            DataStudent data = responseLogin.getData();
+            Toast.makeText(this, responseLogin.getMessage(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            //set session
+            Session.getInstance(getApplicationContext()).putString((Session.email), getEmail());
+            Session.getInstance(getApplicationContext()).putString((Session.name), data.getName());
 
 
-        startActivity(intent);
-        finish();
+            startActivity(intent);
+            finish();
+
+        }else{
+            Toast.makeText(this, responseLogin.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
     }
 

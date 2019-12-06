@@ -1,68 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.MainActivity"
+    android:id="@+id/srMain">
 
-    <View
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/colorAccent">
+        android:layout_height="wrap_content">
 
-    </View>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvHeader"
-        android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="90dp">
-
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:orientation="vertical">
-
-            <TextView
+            <View
                 android:layout_width="match_parent"
-                android:id="@+id/tvNama"
-                android:layout_height="wrap_content"
-                android:text="Nama: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_height="100dp"
+                android:background="@color/colorAccent"></View>
 
-            <TextView
-                android:id="@+id/tvEmail"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="italic"
-                android:text="Email: "
-                android:textSize="14sp" />
-            <Button
-                android:id="@+id/btnLogout"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/tvNama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nama: "
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email: "
+                        android:textSize="14sp"
+                        android:textStyle="italic" />
+
+                    <Button
+                        android:id="@+id/btnLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Logout"></Button>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Logout"
-                android:layout_marginTop="20dp">
-
-            </Button>
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="8dp"
-        android:layout_below="@+id/cvHeader"/>
+                android:layout_below="@+id/cvHeader"
+                android:layout_marginTop="10dp"
+                android:padding="8dp" />
 
 
+        </RelativeLayout>
 
 
-</RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

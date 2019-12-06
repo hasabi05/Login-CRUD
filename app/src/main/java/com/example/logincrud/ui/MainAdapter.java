@@ -43,7 +43,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.tvNama.setText(data.get(position).getName());
         holder.tvNim.setText(data.get(position).getNim());
 
-        ImageHelper.getImage(holder.ivStudent,data.get(position).getImage());
+
+        ImageHelper.getImage(holder.ivStudent,data.get(position).getImage().replace("https","http"));
     }
 
     @Override
