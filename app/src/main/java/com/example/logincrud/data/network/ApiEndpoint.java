@@ -3,10 +3,12 @@ package com.example.logincrud.data.network;
 
 import com.example.logincrud.data.model.login.ResponseLogin;
 import com.example.logincrud.data.model.register.ResponseRegister;
+import com.example.logincrud.data.model.student.ResponseStudent;
 
 import io.reactivex.Single;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ApiEndpoint {
@@ -23,5 +25,11 @@ public interface ApiEndpoint {
     Single<ResponseLogin> postLogin(
             @Field("email") String email,
             @Field("password") String password
+    );
+
+    @GET("students")
+    Single<ResponseStudent> getStudent(
+
+
     );
 }

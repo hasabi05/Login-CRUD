@@ -57,4 +57,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
+    //images
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
 }
